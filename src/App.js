@@ -30,7 +30,7 @@ function App() {
             <Route path="/" element={<Homepage/>} />
             <Route path="/details/:id" element={<CharacterDetails/>}/>
             <Route path="/allCharacters" element={<MarvelCharactersMain/>}/>
-            <Route path="/eventDetails" element={<EventDetails/>}/>
+            <Route path="/eventDetails/:name" element={<EventDetails/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signUp" element={<SignUp/>}/>
             <Route path="profile/:id" element={<Profile/>}/>

@@ -9,7 +9,9 @@ const initialState = {
     OffCanvasSearchBar:false,
     team:null,
     teamCharacters: null,
-    oneCharacterGifs:null
+    oneCharacterGifs:null,
+    eventInformation:{},
+    oneCharacter:{}
 }
 
 const characterSlice = createSlice({
@@ -43,10 +45,16 @@ const characterSlice = createSlice({
         },
         characterGifs: (state, action)=>{
             state.oneCharacterGifs = action.payload
+        },
+        eventDetails: (state, action)=>{
+            state.eventInformation = action.payload
+        },
+        oneCharacterDetails: (state, action)=>{
+            state.oneCharacter = action.payload
         }
     }
 })
 
-export const {charactersFetched,characterDetailsFetched,characterToBeModal,modalShow,searchBarResult,OffCanvasSearchShow,teamFetched,teamCharacters,characterGifs} = characterSlice.actions;
+export const {charactersFetched,characterDetailsFetched,characterToBeModal,modalShow,searchBarResult,OffCanvasSearchShow,teamFetched,teamCharacters,characterGifs,eventDetails,oneCharacterDetails} = characterSlice.actions;
 
 export default characterSlice.reducer;

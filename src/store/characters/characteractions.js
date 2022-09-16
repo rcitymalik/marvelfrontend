@@ -4,7 +4,7 @@ import {
     characterDetailsFetched,
     searchBarResult,
     teamFetched,
-    teamCharacters, characterGifs
+    teamCharacters, characterGifs, eventDetails, oneCharacterDetails
 } from "./characterSlice";
 
 
@@ -44,6 +44,20 @@ export const fetchCharacterById = (id)=>{
     }
 }
 
+export const fetchByName = (name)=>{
+    return async (dispatch)=>{
+        try {
+            const response = await axios.get(`${apiUrl}/characters/name=${name}?ts=${timeStamp}&&apikey=${apiKey}&hash=${secrectHash}`)
+            const {results} = response.data.data
+            console.log(results)
+            dispatch(oneCharacterDetails(results))
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    }
+}
+
 export const fetchEvents = (eventUrl)=>{
     return async (dispatch)=>{
         try {
@@ -51,6 +65,7 @@ export const fetchEvents = (eventUrl)=>{
           const response = await axios.get(`${eventUrl}?ts=${timeStamp}&&apikey=${apiKey}&hash=${secrectHash}`);
           const {results} = response.data.data;
           console.log(results);
+          dispatch(eventDetails(results))
         }
         catch (e) {
             console.log(e.message)

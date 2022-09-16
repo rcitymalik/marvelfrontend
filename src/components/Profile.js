@@ -7,6 +7,7 @@ import {makeTeam, getTeam, deleteCharacter} from "../store/characters/charactera
 import {useState,useEffect} from "react";
 
 import {Card,Button,Container,Row,Col,Form} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 export const Profile = ()=>{
 
@@ -44,7 +45,7 @@ export const Profile = ()=>{
                                     <Card.Img src="#"
                                                alt="#" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
                                     <Button variant="outline-light" style={{height: '36px', overflow: 'visible'}}>
-                                        Edit profile
+                                        Edit profile <FontAwesomeIcon icon={faPenToSquare}/>
                                     </Button>
                                 </div>
                                 <div className="ms-3" style={{ marginTop: '130px' }}>
@@ -73,7 +74,6 @@ export const Profile = ()=>{
                                 <div className="d-flex justify-content-between align-items-center mb-4">
                                     <Card.Text className="lead fw-normal mb-0">My Avengers</Card.Text>
                                 </div>
-                                <Button variant={"outline-dark"}><FontAwesomeIcon icon={faPenToSquare}/></Button>
                                 <Row>
                                     {team ? <Card.Text>{team.name.toUpperCase()}</Card.Text> :
                                         <Form>
@@ -90,18 +90,23 @@ export const Profile = ()=>{
                                             </Button>
                                         </Form>
                                     }
-                                    {teamCharacters ? teamCharacters.map(character =>{
-                                        return(
-                                            <li>
-                                                {character.name}
-                                                <Button onClick={()=>{dispatch(deleteCharacter(character.id))}}>Delete</Button>
-                                            </li>
-                                        )
-                                    }) : <h5>Your team is empty</h5>
-                                    }
-                                    <Col className="mb-2">
-                                        <Card.Img src="#"
-                                                      alt="" className="w-100 rounded-3" />
+                                    <Col className="mb-4">
+                                        {teamCharacters ? teamCharacters.map(character =>{
+                                            return(
+                                                <Card>
+                                                    <Card.Img variant="top" src={`${character.imageUrl}/portrait_incredible.jpg`} style={{ width: '205px',height:'150px'}}/>
+                                                    <Link to={`/details/${character.apiId}`}>
+                                                        <Button variant="info" style={{transform: 'rotate(2deg)', alignSelf:'center', margin:'5px',
+                                                            padding:'0 5px',
+                                                            background:'#ddd',
+                                                            border:'1px solid #222',
+                                                            boxShadow:'3px 3px 0 #222'}}><Card.Title>{character.name}</Card.Title></Button>
+                                                    </Link>
+                                                    <Button onClick={()=>{dispatch(deleteCharacter(character.id))}}>❌</Button>
+                                                </Card>
+                                            )
+                                        }) : <h5>Your team is empty</h5>
+                                        }
                                     </Col>
                                 </Row>
 

@@ -60,8 +60,8 @@ export const CharacterDetails = () =>{
                     <Card.Title>Comic Book Events: {chosenCharacter[0].events.items.map((item,index) =>{
                         return(
                             <div key={index}>
-                                <Link to="/eventDetails">
-                                    <Button style={{marginRight:'auto',marginLeft:'auto'}} variant="Info" onClick={()=>{dispatch(fetchEvents(item.resourceURI))}}><Card.Subtitle>{item.name}</Card.Subtitle></Button>
+                                <Link to={`/eventDetails/${item.name}`}>
+                                    <Button style={{marginRight:'auto',marginLeft:'auto'}} variant="Info" onClick={()=>{dispatch(fetchEvents(item.resourceURI))}}>{item.name}</Button>
                                 </Link>
                             </div>
                         )
@@ -92,17 +92,20 @@ export const CharacterDetails = () =>{
                     {/*</a>*/}
                     <div style={{marginRight:"auto",marginLeft:"auto",alignContent:"center"}}>
                         <Card.Title>Gif's</Card.Title>
-                            <Row style={{alignContent:"center"}}>
-                                {gifs ? gifs.map(gif =>{
+
+                                <Row md="3">
+                                {gifs ? gifs.map((gif,i) =>{
                                     return(
-                                        <Col md="4">
-                                            <Card style={{ width: '13rem', margin:'5px', background:'#29273f'}}>
+                                        <Col style={{alignContent:"center"}}>
+                                            <Card key={i}  style={{ width: '205px',height:'150px', margin:'5px', background:'whitesmoke'}}>
                                                 <Card.Img src={gif.images.downsized.url} style={{ width: '205px',height:'150px'}}/>
                                             </Card>
                                         </Col>
                                     )
                                 }) : ""}
-                            </Row>
+
+                                </Row>
+
                     </div>
                 </Card.Body>
             </Card> :<h3>Loading</h3>}

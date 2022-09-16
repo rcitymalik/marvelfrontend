@@ -1,8 +1,5 @@
 
-
-
 export const Homepage = () =>{
-
 
 
     return(

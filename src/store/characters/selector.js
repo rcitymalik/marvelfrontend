@@ -7,3 +7,5 @@ export const selectShowOffCanvasSearch = (reduxState)=> reduxState.allCharacters
 export const selectTeam = (reduxState)=> reduxState.allCharacters.team;
 export const selectTeamCharacters = (reduxState) => reduxState.allCharacters.teamCharacters;
 export const selectCharacterGifs = (reduxState) => reduxState.allCharacters.oneCharacterGifs;
+export const selectEvent = (reduxState) => reduxState.allCharacters.eventInformation;
+export const selectOneCharacter = (reduxState) => reduxState.allCharacters.oneCharacter;

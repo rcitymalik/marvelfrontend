@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {characterToBeModal,modalShow} from "../store/characters/characterSlice";
 import {useDispatch} from "react-redux";
 
@@ -29,13 +28,6 @@ export const MarvelCharacters = ({character})=>{
                     border:'1px solid #222',
                     boxShadow:'3px 3px 0 #222'}} onClick={()=>{oneCharacter(character)}}><Card.Title>{character.name}</Card.Title></Button>
 
-
-                {/*    <Button style={{float:"right"}} variant="primary" onClick={()=>{*/}
-                {/*        setId(character.id);*/}
-                {/*        console.log(character.thumbnail.path)*/}
-                {/*        setName(character.name);*/}
-                {/*        addCharacter()*/}
-                {/*}}>Add</Button>*/}
             </Card>
         </Col>
     )
