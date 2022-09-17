@@ -4,11 +4,11 @@ import {
     characterDetailsFetched,
     searchBarResult,
     teamFetched,
-    teamCharacters, characterGifs, eventDetails, oneCharacterDetails
+    teamCharacters, characterGifs, eventDetails, oneCharacterDetails, fetchedVideos
 } from "./characterSlice";
 
 
-import {apiKey, backEndUrl,giphyApiKey,giphyApiUrl} from "../../config/constants";
+import {apiKey, backEndUrl, giphyApiKey, giphyApiUrl,youTubeKey, youTubeUrl} from "../../config/constants";
 import {apiUrl} from "../../config/constants";
 import {timeStamp} from "../../config/constants";
 import {secrectHash} from "../../config/constants";
@@ -194,6 +194,20 @@ export const getCharacterGifs = (word)=>{
             const response = await axios.get(`${giphyApiUrl}search?q=${word}&api_key=${giphyApiKey}&limit=6`)
             const result =  response.data.data;
             dispatch(characterGifs(result))
+        }
+        catch (e) {
+            console.log(e.message)
+        }
+    }
+};
+
+export const getCharacterVideos = (word)=>{
+    return async (dispatch)=>{
+        try {
+            const response = await axios.get(`${youTubeUrl}${word}&key=${youTubeKey}`)
+            const {items} = response.data
+            console.log(items)
+            dispatch(fetchedVideos(items))
         }
         catch (e) {
             console.log(e.message)

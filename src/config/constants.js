@@ -9,3 +9,5 @@ export const backEndUrl = "http://localhost:4000";
 export const DEFAULT_MESSAGE_TIMEOUT = 2000;
 export const giphyApiKey = process.env.REACT_APP_GIFPHY_KEY;
 export const giphyApiUrl = "https://api.giphy.com/v1/gifs/";
+export const youTubeKey = process.env.REACT_APP_YOUTUBE_KEY
+export const youTubeUrl = "https://youtube.googleapis.com/youtube/v3/search?maxResults=6&q=";

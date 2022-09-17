@@ -11,7 +11,8 @@ const initialState = {
     teamCharacters: null,
     oneCharacterGifs:null,
     eventInformation:{},
-    oneCharacter:{}
+    oneCharacter:{},
+    characterVideos:[]
 }
 
 const characterSlice = createSlice({
@@ -46,6 +47,9 @@ const characterSlice = createSlice({
         characterGifs: (state, action)=>{
             state.oneCharacterGifs = action.payload
         },
+        fetchedVideos: (state, action)=>{
+            state.characterVideos = action.payload
+        },
         eventDetails: (state, action)=>{
             state.eventInformation = action.payload
         },
@@ -55,6 +59,6 @@ const characterSlice = createSlice({
     }
 })
 
-export const {charactersFetched,characterDetailsFetched,characterToBeModal,modalShow,searchBarResult,OffCanvasSearchShow,teamFetched,teamCharacters,characterGifs,eventDetails,oneCharacterDetails} = characterSlice.actions;
+export const {charactersFetched,characterDetailsFetched,characterToBeModal,modalShow,searchBarResult,OffCanvasSearchShow,teamFetched,teamCharacters,characterGifs,eventDetails,oneCharacterDetails,fetchedVideos} = characterSlice.actions;
 
 export default characterSlice.reducer;

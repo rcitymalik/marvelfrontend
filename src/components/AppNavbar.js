@@ -6,12 +6,7 @@ import {selectToken} from "../store/user/userSelectors";
 import {logOut} from "../store/user/usersSlice";
 import {selectUser} from "../store/user/userSelectors";
 
-
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import {Button,Container,Nav,Navbar,NavDropdown} from 'react-bootstrap';
 
 export const AppNavbar = () =>{
 
@@ -44,7 +39,7 @@ export const AppNavbar = () =>{
                         navbarScroll
                     >
                         {profile ? <Nav.Link as={Link} to={`/profile/${id}`}>{name.toUpperCase()}</Nav.Link> :""}
-                        <Nav.Link href="#action2">Link</Nav.Link>
+                        <Nav.Link as={Link} to={"/auction"}>Auctions</Nav.Link>
                         <NavDropdown title="Marvel Comic Universe" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to={"/allCharacters"}>

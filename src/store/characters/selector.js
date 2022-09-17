@@ -9,3 +9,4 @@ export const selectTeamCharacters = (reduxState) => reduxState.allCharacters.tea
 export const selectCharacterGifs = (reduxState) => reduxState.allCharacters.oneCharacterGifs;
 export const selectEvent = (reduxState) => reduxState.allCharacters.eventInformation;
 export const selectOneCharacter = (reduxState) => reduxState.allCharacters.oneCharacter;
+export const selectVideos = (reduxState) => reduxState.allCharacters.characterVideos;
