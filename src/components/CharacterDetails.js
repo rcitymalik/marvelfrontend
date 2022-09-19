@@ -21,8 +21,8 @@ import logo from "../Poweredby_100px-White_VertLogo.png"
 export const CharacterDetails = () =>{
 
     const chosenCharacter = useSelector(selectCharacterById);
-    const videos = useSelector(selectVideos)
-    console.log(videos)
+    const videos = useSelector(selectVideos);
+    console.log(videos);
     const team = useSelector(selectTeam);
     const user = useSelector(selectUser);
     const userId = user?.id;
@@ -86,9 +86,9 @@ export const CharacterDetails = () =>{
                     <div>
                         <Card.Title style={{textAlign:"center"}}><FontAwesomeIcon style={{width:"50px",height:"50px",backgroundColor:"red",borderRadius:"25px 25px"}} icon={faCirclePlay} /></Card.Title>
                         <Row md="3">
-                            {videos ? videos.map(video =>{
+                            {videos ? videos.map((video,i) =>{
                                 return(
-                                    <Col style={{width: "250", height: "200", marginBottom: "5px"}}>
+                                    <Col key={i} style={{width: "250", height: "200", marginBottom: "5px"}}>
                                         <iframe key={video.id} title={video.id}
                                                 src={`https://www.youtube.com/embed/${video.id.videoId}`}/>
                                     </Col>
@@ -103,7 +103,7 @@ export const CharacterDetails = () =>{
                             {chosenCharacter[0].events.items.map((item,index) =>{
                                 return(
                                     <ul style={{listStyle:"none"}} key={index}>
-                                        <Link to={`/eventDetails/${item.name}`}>
+                                        <Link style={{textDecoration:"none"}} to={`/eventDetails/${item.name}`}>
                                             <li style={{textAlign:"center"}} variant="Info" onClick={()=>{dispatch(fetchEvents(item.resourceURI))}}>{(item.name).toUpperCase()}</li>
                                         </Link>
                                     </ul>
@@ -118,7 +118,7 @@ export const CharacterDetails = () =>{
                             {chosenCharacter[0].series.items.map((item,index) =>{
                                 return(
                                     <ul key={index} style={{listStyle:"none"}}>
-                                        <Link to="/eventDetails">
+                                        <Link style={{textDecoration:"none"}} to="/eventDetails">
                                             <li style={{textAlign:"center"}} variant="Info" onClick={()=>{dispatch(fetchEvents(item.resourceURI))}}><Card.Subtitle>{(item.name).toUpperCase()}</Card.Subtitle></li>
                                         </Link>
                                     </ul>
@@ -133,7 +133,7 @@ export const CharacterDetails = () =>{
                             {chosenCharacter[0].stories.items.map((item,index) =>{
                                 return(
                                     <ul key={index} style={{listStyle:"none"}}>
-                                        <Link to="/eventDetails">
+                                        <Link style={{textDecoration:"none"}} to="/eventDetails">
                                             <li style={{textAlign:"center"}} variant="dark" onClick={()=>{dispatch(fetchEvents(item.resourceURI))}}><Card.Subtitle>{(item.name).toUpperCase()}</Card.Subtitle></li>
                                         </Link>
                                     </ul>

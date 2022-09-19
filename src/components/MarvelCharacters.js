@@ -20,7 +20,8 @@ export const MarvelCharacters = ({character})=>{
 
     return(
         <Col md={4}>
-            <Card style={{ width: '18rem', margin:'5px', background:'#29273f'}}>
+            <Card style={{ width: '18rem', margin:'5px', background:'#29273f',
+                position:"relative",borderRadius:"0% 0% 0% 0% / 0% 0% 0% 0%",boxShadow:"20px 20px rgba(0,0,0,.15)", transition:"all .4s ease"}}>
                 <Card.Img variant="top" src={`${character.thumbnail.path}/portrait_incredible.jpg`} style={{ width: '286px',height:'280px'}}/>
                 <Button variant="info" style={{transform: 'rotate(2deg)', alignSelf:'center', margin:'5px',
                     padding:'0 5px',

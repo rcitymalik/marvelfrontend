@@ -3,6 +3,7 @@ import {AppNavbar} from "./components/AppNavbar";
 import {Route,Routes,Navigate} from "react-router-dom";
 import {CharacterDetails} from "./components/CharacterDetails";
 import {MarvelCharactersMain} from "./components/MarvelCharactersMain";
+import {AllAuctions} from "./components/AllAuction";
 import {EventDetails} from "./components/EventDetails";
 import {OffCanvasSearch} from "./components/OffCanvasSearch";
 import {getUserWithStoredToken} from "./store/user/userActions";
@@ -15,6 +16,7 @@ import {Login} from "./pages/Login";
 import {SignUp} from "./pages/SignUp";
 import {Profile} from "./components/Profile";
 import {selectToken} from "./store/user/userSelectors";
+import {AuctionDetails} from "./components/AuctionDetails";
 
 
 function App() {
@@ -42,11 +44,9 @@ function App() {
             <Route path="/eventDetails/:name" element={<EventDetails/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signUp" element={<SignUp/>}/>
-            <Route path="profile/:id" element={
-
-                        <Profile/>
-
-            }/>
+            <Route path="profile/:id" element={<Profile/>}/>
+            <Route path="/auction" element={<AllAuctions/>}/>
+            <Route path="/auction/:id" element={<AuctionDetails/>}/>
         </Routes>
     </div>
   );

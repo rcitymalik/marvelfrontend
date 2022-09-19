@@ -59,6 +59,10 @@ const characterSlice = createSlice({
     }
 })
 
-export const {charactersFetched,characterDetailsFetched,characterToBeModal,modalShow,searchBarResult,OffCanvasSearchShow,teamFetched,teamCharacters,characterGifs,eventDetails,oneCharacterDetails,fetchedVideos} = characterSlice.actions;
+export const {charactersFetched,characterDetailsFetched,
+    characterToBeModal,modalShow,searchBarResult,
+    OffCanvasSearchShow,teamFetched,teamCharacters,
+    characterGifs,eventDetails,
+    oneCharacterDetails,fetchedVideos} = characterSlice.actions;
 
 export default characterSlice.reducer;
